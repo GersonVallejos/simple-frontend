@@ -20,11 +20,15 @@ export class StudentService {
     return this.httpClient.post(`${this.baseURL}`,student);
   }
 
-  getStudentById(id?: number): Observable<Student>{
+  getStudentById(id: number): Observable<Student>{
     return this.httpClient.get<Student>(`${this.baseURL}/${id}`);
   }
 
   updateStudentApi(id: number, student: Student): Observable<Object>{
     return this.httpClient.put(`${this.baseURL}/${id}`,student);
+  }
+
+  deleteStudentApi(id?: number): Observable<Object>{
+    return this.httpClient.delete(`${this.baseURL}/${id}`);
   }
 }
